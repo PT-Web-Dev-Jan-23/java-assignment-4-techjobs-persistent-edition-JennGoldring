@@ -16,10 +16,15 @@
 
     <div class="form-group">
         <label th:for="employer">Employer</label>
-        <select name="employerId">
-            <option th:each="employer : ${employers}"
-                    th:text="${employer.name}"
-                    th:value="${employer.id}"></option>
+<!--        <select name="employerId">-->
+        <select class="form-control" th:field="${job.employer}">
+            <option value="">Select an employer</option>
+            <option th:each="employer : ${employers}" th:value="${employer.id}" th:text="${employer.name}"></option>
+<!--            <option value="">Select an employer</option>-->
+<!--            <option th:each="employer : ${employers}" th:value="${employer.id}" th:text="${employer.name}"></option>-->
+<!--            <option th:each="employer : ${employers}"-->
+<!--                    th:text="${employer.name}"-->
+<!--                    th:value="${employer.id}"></option>-->
         </select>
         <a th:href="@{'/employers/add'}">Add Employers</a>
     </div>

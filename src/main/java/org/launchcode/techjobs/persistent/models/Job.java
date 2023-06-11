@@ -1,44 +1,34 @@
 package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 @Entity
-public class Job{
+public class Job extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+    @ManyToOne
+    @JoinColumn(name = "employer_id")
+    private Employer employer;
 
-    private String name;
-
-    private String employer;
     private String skills;
 
     public Job() {
-    }
-
-    public Job(String anEmployer, String someSkills) {
         super();
-        this.employer = anEmployer;
-        this.skills = someSkills;
+        // no-arg constructor
     }
 
-    // Getters and setters.
-
-    public String getName() {
-        return name;
+    public Job(Employer employer, String skills) {
+        super();
+        this.employer = employer;
+        this.skills = skills;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
@@ -50,3 +40,32 @@ public class Job{
         this.skills = skills;
     }
 }
+//    }
+//    public Job() {
+//    }
+//
+//    public Job(String anEmployer, String someSkills) {
+//        super();
+//        this.employer = anEmployer;
+//        this.skills = someSkills;
+//    }
+//
+//    // Getters and setters.
+//
+//
+//    public String getEmployer() {
+//        return employer;
+//    }
+//
+//    public void setEmployer(String employer) {
+//        this.employer = employer;
+//    }
+//
+//    public String getSkills() {
+//        return skills;
+//    }
+//
+//    public void setSkills(String skills) {
+//        this.skills = skills;
+//    }
+//}
