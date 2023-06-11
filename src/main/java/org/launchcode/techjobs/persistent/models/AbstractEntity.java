@@ -1,22 +1,25 @@
 package org.launchcode.techjobs.persistent.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
-@MappedSuperClass
-public abstract class AbstractEntity {
 
+@MappedSuperclass
+public abstract class AbstractEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    public int getID() {
+        return id;
+    }
     @NotBlank
     @Size(max = 100)
     private String name;
-
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
