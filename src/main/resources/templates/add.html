@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-        <label th:for="employer">Employer</label>
+        <label for="employer">Employer</label>
 <!--        <select name="employerId">-->
         <select class="form-control" th:field="${job.employer}">
             <option value="">Select an employer</option>
@@ -38,6 +38,7 @@
         <a th:href="@{'/skills/add'}">Add Skills</a>
     </div>
 
+    <input type="hidden" name="employerId" th:value="${employerId}" />
     <input type="submit" value="Add Job" />
 </form>
 

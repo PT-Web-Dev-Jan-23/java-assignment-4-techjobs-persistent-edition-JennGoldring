@@ -10,7 +10,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -21,6 +20,9 @@ public class HomeController {
     @Autowired
     private EmployerRepository employerRepository;
 
+    public HomeController() {
+    }
+
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("title", "My Jobs");
@@ -29,10 +31,10 @@ public class HomeController {
 
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
-        model.addAttribute("title", "Add Job");
-        List<Employer> employers = (List<Employer>) employerRepository.findAll();
+        model.addAttribute("job", new Job());
+//        List<Employer> employers = (List<Employer>) employerRepository.findAll();
         model.addAttribute("employers", employerRepository.findAll());
-        model.addAttribute(new Job());
+//        model.addAttribute(new Job());
         return "add";
     }
 
