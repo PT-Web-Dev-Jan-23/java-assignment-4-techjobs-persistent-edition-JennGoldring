@@ -12,11 +12,16 @@ import java.util.Objects;
 public abstract class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    public int getID() {
-        return id;
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+    public Integer getId() {
+       return id;
+    }
+
     @NotBlank
     @Size(max = 100)
     private String name;
