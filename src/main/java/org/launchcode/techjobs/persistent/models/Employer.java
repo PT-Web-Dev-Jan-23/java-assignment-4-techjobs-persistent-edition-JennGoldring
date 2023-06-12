@@ -16,8 +16,8 @@ public class Employer extends AbstractEntity {
     @Size(max = 50)
     private String location;
 
-    @OneToMany(mappedBy = "employer")
-    private List<Skill> skills;
+//    @OneToMany(mappedBy = "employer")
+//    private List<Skill> skills;
 
     @OneToMany
     @JoinColumn(name = "employer_id")
@@ -42,7 +42,7 @@ public class Employer extends AbstractEntity {
         this.jobs = jobs;
     }
     @Override
-    public Integer getId() {
+    public int getId() {
         return super.getId();
     }
 }

@@ -1,26 +1,25 @@
 package org.launchcode.techjobs.persistent.models;
 
-import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 @Entity
 public class Skill extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @NotBlank
     private String description;
-    @ManyToOne
-    private Employer employer;
+//    @ManyToOne
+//    private Employer employer;
 
     public Skill () {
 }
 
-    public Integer getId(){
+    public int getId(){
         return id;
     }
     public String getDescription() {
@@ -30,10 +29,10 @@ public class Skill extends AbstractEntity {
         this.description = description;
     }
 
-    public Employer getEmployer() {
-        return employer;
-    }
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
+//    public Employer getEmployer() {
+//        return employer;
+//    }
+//    public void setEmployer(Employer employer) {
+//        this.employer = employer;
+//    }
 }
