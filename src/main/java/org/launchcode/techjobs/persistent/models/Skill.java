@@ -3,7 +3,10 @@ package org.launchcode.techjobs.persistent.models;
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
+
 @Entity
 public class Skill extends AbstractEntity {
 
@@ -13,12 +16,20 @@ public class Skill extends AbstractEntity {
 
     @NotBlank
     private String description;
-//    @ManyToOne
-//    private Employer employer;
+
+    @ManyToMany(mappedBy = "skills")
+    private List<Job> jobs;
 
     public Skill () {
 }
 
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
     public int getId(){
         return id;
     }
@@ -29,10 +40,4 @@ public class Skill extends AbstractEntity {
         this.description = description;
     }
 
-//    public Employer getEmployer() {
-//        return employer;
-//    }
-//    public void setEmployer(Employer employer) {
-//        this.employer = employer;
-//    }
 }
