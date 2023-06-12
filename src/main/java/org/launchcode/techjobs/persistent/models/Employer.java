@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 public class Employer extends AbstractEntity {
 
+
     @NotBlank
     @Size(max = 50)
     private String location;

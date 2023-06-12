@@ -18,12 +18,19 @@ public class Job extends AbstractEntity {
         // no-arg constructor
     }
 
-    public Job(Employer employer, String skills) {
+    public Job(String name, Employer employer, String skills) {
         super();
+        this.name = name;
         this.employer = employer;
         this.skills = skills;
     }
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
     public Employer getEmployer() {
         return employer;
     }

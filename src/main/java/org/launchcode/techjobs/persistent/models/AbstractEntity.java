@@ -12,7 +12,8 @@ import java.util.Objects;
 public abstract class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    public Integer id;
+//    public String name;
 
     public void setId(Integer id) {
         this.id = id;
@@ -24,7 +25,7 @@ public abstract class AbstractEntity {
 
     @NotBlank
     @Size(max = 100)
-    private String name;
+    public String name;
 
     public String getName() {
         return name;
