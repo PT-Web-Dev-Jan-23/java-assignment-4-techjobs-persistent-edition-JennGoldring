@@ -11,10 +11,6 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @NotBlank
     private String description;
 
