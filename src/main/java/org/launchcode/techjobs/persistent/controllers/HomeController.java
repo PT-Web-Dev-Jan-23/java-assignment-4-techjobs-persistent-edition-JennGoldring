@@ -38,34 +38,28 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("add")
+    @GetMapping("/add")
     public String displayAddJobForm(Model model) {
         model.addAttribute("job", new Job());
-//        List<Employer> employers = (List<Employer>) employerRepository.findAll();
         model.addAttribute("employers", employerRepository.findAll());
         model.addAttribute("skills", skillRepository.findAll());
-//        model.addAttribute(new Job());
+
         return "add";
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                        Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills) {
-
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Job");
-            model.addAttribute("employers", employerRepository.findAll());
-            model.addAttribute("skills", skillRepository.findAllById(skills));
             return "add";
         }
 
         Employer employer = employerRepository.findById(employerId).orElse(null);
         newJob.setEmployer(employer);
-        // Process skills
-        if (skills != null && !skills.isEmpty()) {
-            List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-            newJob.setSkills(skillObjs);
-        }
+
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+        newJob.setSkills(skillObjs);
+
         return "redirect:/";
     }
 

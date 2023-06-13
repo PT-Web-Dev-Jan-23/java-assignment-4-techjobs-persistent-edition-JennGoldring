@@ -10,27 +10,19 @@ public class Job extends AbstractEntity {
 //    private String name;
 
     @ManyToOne
-    @JoinColumn(name = "employer_id")
     private Employer employer;
-
     @ManyToMany
-    @JoinTable(
-            name = "skill",
-            joinColumns = @JoinColumn(name = "job_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id")
-    )
     private List<Skill> skills;
 
     public Job() {
-//        super();
-        // no-arg constructor
+
     }
 
-    public Job(String name, Employer employer, List<Skill> skills) {
-//        super();
-        this.name = name;
+    public Job(Employer employer, List<Skill> skills) {
+        super();
         this.employer = employer;
         this.skills = skills;
+
     }
     public String getName() {
         return name;
