@@ -60,6 +60,8 @@ public class HomeController {
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
 
+        jobRepository.save(newJob);
+
         return "redirect:/";
     }
 
@@ -72,3 +74,5 @@ public class HomeController {
 
     }
 }
+
+// this is a line to get my github updated
